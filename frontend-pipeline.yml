@@ -5,7 +5,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  frontendAppName: 'frontend-app-name'
+- group: FullstackVariables
 
 stages:
 - stage: Build
