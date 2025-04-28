@@ -3,7 +3,7 @@ trigger:
 
 pool:
   name: 'Azure_DevOps_Demo'         # or whatever your agent pool is named
-  demands: agent.name -equals Azure_DevOps_Demo
+  demands: agent.name -equals rhel-agent-1
 
 
 variables:
