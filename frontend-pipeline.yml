@@ -1,0 +1,27 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  frontendAppName: 'frontend-app-name'
+
+stages:
+- stage: Build
+  jobs:
+  - job: BuildFrontend
+    steps:
+    - task: NodeTool@0
+      inputs:
+        versionSpec: '18.x'
+    - script: |
+        cd client
+        npm install
+        npm run build
+      displayName: 'Build Frontend App'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: 'client/dist'
+        ArtifactName: 'frontend'
+        publishLocation: 'Container'
